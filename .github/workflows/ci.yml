@@ -1,9 +1,9 @@
 name: Continuous Integration
 
 on:
-  pull_request:
-    branches:
-      - main
+ pull_request:
+   branches:
+     - main
 
 jobs:
   test:
@@ -21,6 +21,9 @@ jobs:
         run: |
           npm install
 
+    - name: 'install dependencies'
+      run: npm  install
 
-      - name: 'testing-code'
-        run: npm run test
+    - name: 'Run Tests'
+      run: npm run test
+

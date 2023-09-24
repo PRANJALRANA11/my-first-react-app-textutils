@@ -1,24 +1,26 @@
-name: Continuous integration 
+name: Continuous Integration
 
 on:
- pull_request:
-   branches:
-     -main
+  pull_request:
+    branches:
+      - main
+
 jobs:
   test:
-    name: 'Run unit tests'
-    defaults:
-      run:
-        shell: bash
-        # Define the working directory for all run steps in the workflow
-        working-directory: /app
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      name: 'checkout-repo'
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: 'install dependancy'
-      run: npm  install
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # You can specify the version you need
 
-    - name: 'testing-code'
-      run: npm run test
+      - name: Install Dependencies
+        run: |
+          npm install
+
+
+      - name: 'testing-code'
+        run: npm run test

@@ -11,7 +11,7 @@ jobs:
       run:
         shell: bash
         # Define the working directory for all run steps in the workflow
-        working-directory: ./app
+        working-directory: /app
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
